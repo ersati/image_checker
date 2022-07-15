@@ -28,6 +28,8 @@ app.use(express.static("public"))
 app.set('view engine', 'ejs');
 
 const main = (req, res) => {
+    const formData = new FormData();
+    console.log(formData)
     fs.readdir('public/img/', (err, files) => {
         if (err) console.log(err);
         for (const file of files) {
@@ -38,7 +40,6 @@ const main = (req, res) => {
     });
     res.render('index')
 }
-
 const photo = (req, res) => {
     const img = req.params.id
     const apiKey =process.env.APIKey;
