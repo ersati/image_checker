@@ -28,16 +28,16 @@ app.use(express.static("public"))
 app.set('view engine', 'ejs');
 
 const main = (req, res) => {
-    const formData = new FormData();
-    console.log(formData)
-    fs.readdir('public/img/', (err, files) => {
-        if (err) console.log(err);
-        for (const file of files) {
-            fs.unlink(path.join('public/img/', file), err => {
-                if (err) console.log(err);
-            });
-        }
-    });
+    // const formData = new FormData();
+    // console.log(formData)
+    // fs.readdir('public/img/', (err, files) => {
+    //     if (err) console.log(err);
+    //     for (const file of files) {
+    //         fs.unlink(path.join('public/img/', file), err => {
+    //             if (err) console.log(err);
+    //         });
+    //     }
+    // });
     res.render('index')
 }
 const photo = (req, res) => {
