@@ -22,7 +22,7 @@ const storage = multer.diskStorage({
   }
 })
 const upload = multer({ storage: storage });
-
+app.use('/favicon.ico', express.static('images/favicon.ico'));
 app.use("/public", express.static('./public/'));
 app.use(express.static("public"))
 app.set('view engine', 'ejs');
@@ -69,8 +69,10 @@ app.get('/', main)
 
 app.get('/photo/:id', photo)
 app.post('/upload',upload.single('image'),function(req,res){
+
     const filePath = '/path/to/image.jpg';
     const formData = new FormData();
+    console.log(formData)
     formData.append('image', fs.createReadStream(filePath));
     if(req.file){
         const imgName = req.file.filename
