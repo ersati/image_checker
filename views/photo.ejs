@@ -8,17 +8,19 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome Your picture was scaned <%= status %> </h1>
-    <% tags.forEach(el => { %>
-        <p><%= el.tag.en %></p>
+    <h1 class="checker-headliner">Welcome your picture was scaned <%= status %> </h1>
+    <div class="checker-wrapper">
+
+    
+    <div class="checker-wrapper-text">
+        <p class="checker-text"> Tags: </p>
+        <% tags.forEach(el => { %> 
+            <p class="checker-text">*<%= el.tag.en %></p>
         <%})%>
-
-
-    <script>
-
-
-
-    </script>
+    </div>
+    <img class="checker-wrapper-img" src="/public/img/<%= img %>" alt="" srcset="">
+    <a href="/"><button class="checker-wrapper-btn">Try Again</button></a>
+</div>
 
 </body>
 </html>
